@@ -16,6 +16,7 @@ namespace GooberEatsAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,10 +31,8 @@ namespace GooberEatsAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                // Maps our default Controller route.
+                endpoints.MapControllerRoute("Default", "{controller=Places}/{action=Index}/{id?}");
             });
         }
     }
