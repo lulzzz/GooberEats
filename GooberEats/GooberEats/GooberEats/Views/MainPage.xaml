@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GooberEats.ViewModels"
+             mc:Ignorable="d"
+             x:Class="GooberEats.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="1.25*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="food"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="1"
+               HorizontalOptions="End"
+               />
+
+        <Label Text="Goober Eats"
+               Grid.Row="0"
+               Grid.Column="1"
+               Grid.ColumnSpan="1"
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="Center"
+               FontSize="28"
+               FontAttributes="Bold"
+               />
+
+        <Label Text="Choose your distance radius and hit EAT!"
+               Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               HorizontalTextAlignment="Center"
+               TranslationY="20"
+               FontSize="18"
+               />
+
+        <StackLayout Grid.Row="2"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2">
+            <Label Text="How far are you willing to travel?"/>
+            <Picker Title="Please choose a maximum distance..."
+                    ItemsSource="{Binding DistanceOptions}"
+                    SelectedItem="{Binding Distance}"
+                    />
+            <Label Text="{Binding Distance}"/>
+            <Label Text="{Binding Latitude}"/>
+            <Label Text="{Binding Longitude}"/>
+        </StackLayout>
+
+        <Button Text="EAT!"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="20"
+                BackgroundColor="CornflowerBlue"
+                CornerRadius="100"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="White"
+                Command="{Binding GetLocationCommand}"
+                />
+    </Grid>
+
+</ContentPage>
