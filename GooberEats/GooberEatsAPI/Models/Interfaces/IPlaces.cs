@@ -7,6 +7,6 @@ namespace GooberEatsAPI.Models.Interfaces
 {
     public interface IPlaces
     {
-        public Task<List<Place>> GetPlaces();
+        public Task<Place> GetPlaces();
     }
 }
