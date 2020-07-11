@@ -1,4 +1,6 @@
-# Goober Eats
+# <img src="./Assets/Icons/icon_72.png" width="48"/> GooberEats
+**Current Version:** 0.6d  
+**Last Updated:** July 11, 2020
 
 ## Table Of Contents
 1. [Overview](#overview)
@@ -6,23 +8,32 @@
 3. [Getting Started](#getting-started)
 4. [Tools Used](#tools-used)
 5. [Change Log](#change-log)
-6. [Author](#author)
-7. [App Permissions](#application-permissions)
-8. [License](#license)
+6. [App Permissions](#application-permissions)
+7. [Author](#author)
+8. [Attributions](#attributions)
+9. [License](#license)
 
 ## Overview
 
-Goober Eats was built with _**you**_ in mind!
+GooberEats was built with _**you**_ in mind!
 
-Have you ever been hungry, but were too lazy to cook?  
-Want to order out but don't know what sounds good?  
-Does your spouse / partner / friend always ride the fence on where to eat?
+Have you ever been hungry, but were _too lazy to cook?_  
+Want to order out but _don't know what sounds good?_  
+Does your spouse / partner / friend always _ride the fence on where to eat?_
 
-Now there's Goober Eats!
+**Now there's GooberEats!**
 
-Goober Eats is a mobile (Android) application that allows you to select a distance radius from your current location, and return a random restuarant within that radius.
+GooberEats is a mobile _(Android)_ application that allows you to select a distance radius from your current location, and return a random restuarant within that radius.
+
+See pertinent information about that restaurant such as its Google rating, the total number of ratings and reviews, and its address.
+
+If the restaurant sounds appealing, there's even a button to view it directly in your device native Maps application for easy routing and further details!
 
 ## Visuals
+
+|Application Main View|Application Distance Picker|Application Result View|Application Map Result|
+|:-:|:-:|:-:|:-:|
+|<img src="./Assets/Visuals/Main_Page.png" alt="Application Main Page" width="100%" />|<img src="./Assets/Visuals/Distance_Picker.png" alt="Application Distance Picker" width="100%" />|<img src="./Assets/Visuals/Result_Page.png" alt="Application Result View" width="100%" />|<img src="./Assets/Visuals/Map_Result.png" alt="Result Opened In Maps App" width="100%" />|
 
 ## Getting Started
 
@@ -32,23 +43,71 @@ Goober Eats is a mobile (Android) application that allows you to select a distan
 
 ## Tools Used
 
+A number of tools were used in the development of GooberEats, ranging from various development tools, to web tools, and more. As many as possible will be listed here.
+
+##### Development Tools
+[Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/) is the IDE / editor used during the development of this application. It enables development and debugging of applications and programs, working with static files such as images and markdown, and includes an integrated Android emulator.
+
+[ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) is the framework used to develop the GooberEatsAPI server.
+
+[Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) is used to develop the GooberEats Android application.
+
+[C#](https://docs.microsoft.com/en-us/dotnet/csharp/) is the language used to develop both the GooberEats Android application, as well as the GooberEatsAPI server application.
+
+[MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.1) or _Model-View-Controller_ is the application architectural pattern used to develop the GooberEatsAPI application. This pattern helps to seperate the data, business logic, and user interface from each other in order to help make it easier to develop, debug and test code, as it ensures each item in the process serves a singular function, as opposed to possibly having to make many broad changes in a variety of files.
+
+[MVVM](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) or _Model-View-ViewModel_ is the application architectural pattern used to develop the GooberEats Android application. Similar to the _MVC_ pattern, it helps to seperate the data, business logic, and user interface.
+
+##### Web Tools
+[json2csharp](https://json2csharp.com/) is a web application that allows the conversion of JSON response objects into C# classes for deserialization.
+
+[Google Places API](https://developers.google.com/places/web-service/intro) is used to retrieve information about nearby restaurants. The entire GooberEats application was built around the premise of this API.
+
+##### Cloud / Hosting Tools
+[Azure App Services](https://azure.microsoft.com/en-us/services/app-service/) are used to host the GooberEatsAPI server, in order to query the Google Places API and feed the resulting data to the GooberEats Android application.
+
 ## Change Log
 
-**v0.2 - July 07, 2020**
+###### Version Legend:
+There are a few different letters and numbers that you may see used during the versioning of this application. They are as follows:
+- **#.# / #.## - Month DD, YYYY**
+  - This is the basic version numbering you will see with every patch / update / release, followed by the date.
+  - Single digits after the **.** indicate feature additions and improvements, while a double digit after the **.** indicates a bug-fix during the current release / feature number.
+- **d**
+  - The letter **d** after a version indicates a _development_ version, and is generally a pre-release / pre-public release version. These usually are not seen after **v1.0** and beyond.
+- **b**
+  - The letter **b** after a version indicates a _bug-fix_ in order to correct any bugs or issues discovered after a release. **_This does not stand for "beta" as it may in other applications._**
+- **R**
+  - The letter **R** after a version indicates that it is a _major release_. These occur when new and possibly prominant features are introduced into the application.
+
+###### Version History
+
+**v0.6d - July 11, 2020**
+- ResultPage 100% complete (MVP).
+- ResultPage includes button to open result in native device map application.
+
+**v0.5d - July 10, 2020**
+- ResultPage view 90% complete. Pertinent data from returned result displayed to user.
+- ResultPage view scaffolded.
+
+**v0.4d - July 10, 2020**
+- API server responds to application query with formatted result response.
+- App now queries API server with device location, and user selected distance radius.
+
+**v0.3d - July 09, 2020**
+- API server randomly selects one formatted result.
+- API server queries Google Places API, and deserializes response.
+- API server scaffolded.
+
+**v0.2d - July 07, 2020**
 - Application now detects user location.
 - Main Page 100% complete (MVP).
 
-**v0.1 - July 06, 2020**
+**v0.1d - July 06, 2020**
 - Main Page 90% complete.
 
-**v0.0 - July 06, 2020**
+**v0.0d - July 06, 2020**
 - Initial project / documentation creation.
-
-## Author
-
-**Robert James Nielsen**
-- [GitHub](https://github.com/robertjnielsen)
-- [LinkedIn](https://www.linkedin.com/in/robertjnielsen)
 
 ## Application Permissions
 
@@ -56,6 +115,16 @@ The following permissions are required to be enabled in order for Goober Eats to
 
 **Location**
 - Allowing the application to access device location settings is a requirement in order to locate nearby restaurants and determine a distance radius.
+
+## Author
+
+**Robert James Nielsen** is a U.S. Army veteran and a full-stack software engineer who enjoys developing ASP.NET Core web applications, as well as Xamarin.Forms Android applications.
+- [GitHub](https://github.com/robertjnielsen)
+- [LinkedIn](https://www.linkedin.com/in/robertjnielsen)
+
+## Attributions
+
+**Application Icon** made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com).
 
 ## License
 
