@@ -47,11 +47,37 @@
         <StackLayout Grid.Row="2"
                      Grid.Column="0"
                      Grid.ColumnSpan="2">
-            <Label Text="{Binding Result.Name}"/>
-            <Label Text="{Binding Result.Rating, StringFormat='Rating: {0}'}"/>
-            <Label Text="{Binding Result.TotalReviews, StringFormat='Total Reviews: {0}'}"/>
-            <Label Text="{Binding Result.Address}"/>
+            <Label Text="{Binding Result.Name}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   />
+            <Label Text="{Binding Result.Rating, StringFormat='Rating: {0}'}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   />
+            <Label Text="{Binding Result.TotalReviews, StringFormat='Total Reviews: {0}'}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   />
+            <Label Text="{Binding Result.Address}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="18"
+                   />
         </StackLayout>
+
+        <Button Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="20"
+                CornerRadius="100"
+                FontSize="30"
+                FontAttributes="Bold"
+                Text="MAP IT"
+                TextColor="White"
+                BackgroundColor="CornflowerBlue"
+                Command="{Binding OpenMap}"
+                />
     </Grid>
     
 </ContentPage>

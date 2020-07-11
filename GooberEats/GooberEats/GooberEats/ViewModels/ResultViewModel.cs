@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GooberEats.ViewModels
@@ -14,6 +16,7 @@ namespace GooberEats.ViewModels
         {
             _navigation = navigation;
             Result = result;
+            OpenMap = new Command(MapResult);
         }
 
         // Implements the INavigation interface.
@@ -29,6 +32,13 @@ namespace GooberEats.ViewModels
                 result = value;
                 OnPropertyChanged(nameof(Result));
             }
+        }
+
+        // Map Result Command
+        public ICommand OpenMap { get; }
+        async void MapResult()
+        {
+            await Launcher.OpenAsync($"geo:{result.Latitude},{result.Longitude}?q={result.Address}");
         }
 
         // Handle property change events.
