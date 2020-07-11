@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooberEats.Android", "GooberEats\GooberEats.Android\GooberEats.Android.csproj", "{502A2FC5-148F-46B8-9DFA-0DCBA6847AF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooberEats", "GooberEats\GooberEats\GooberEats.csproj", "{895B8281-8D98-47B8-A6D1-A2CF6D8181D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooberEats", "GooberEats\GooberEats\GooberEats.csproj", "{895B8281-8D98-47B8-A6D1-A2CF6D8181D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooberEatsAPI", "GooberEatsAPI\GooberEatsAPI.csproj", "{DA32D3FD-644C-48FC-BC92-D181C890BEA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{895B8281-8D98-47B8-A6D1-A2CF6D8181D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895B8281-8D98-47B8-A6D1-A2CF6D8181D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{895B8281-8D98-47B8-A6D1-A2CF6D8181D9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DA32D3FD-644C-48FC-BC92-D181C890BEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA32D3FD-644C-48FC-BC92-D181C890BEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA32D3FD-644C-48FC-BC92-D181C890BEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA32D3FD-644C-48FC-BC92-D181C890BEA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
