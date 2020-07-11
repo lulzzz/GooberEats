@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GooberEats.MainPage">
+             x:Class="GooberEats.Views.ResultPage">
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -35,7 +35,7 @@
                FontAttributes="Bold"
                />
 
-        <Label Text="Choose your distance radius and hit EAT!"
+        <Label Text="Try this place out!"
                Grid.Row="1"
                Grid.Column="0"
                Grid.ColumnSpan="2"
@@ -47,25 +47,11 @@
         <StackLayout Grid.Row="2"
                      Grid.Column="0"
                      Grid.ColumnSpan="2">
-            <Label Text="How far are you willing to travel?"/>
-            <Picker Title="Please choose a maximum distance..."
-                    ItemsSource="{Binding DistanceOptions}"
-                    SelectedItem="{Binding Distance}"
-                    />
+            <Label Text="{Binding Result.Name}"/>
+            <Label Text="{Binding Result.Rating, StringFormat='Rating: {0}'}"/>
+            <Label Text="{Binding Result.TotalReviews, StringFormat='Total Reviews: {0}'}"/>
+            <Label Text="{Binding Result.Address}"/>
         </StackLayout>
-
-        <Button Text="EAT!"
-                Grid.Row="3"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Margin="20"
-                BackgroundColor="CornflowerBlue"
-                CornerRadius="100"
-                FontSize="30"
-                FontAttributes="Bold"
-                TextColor="White"
-                Command="{Binding CallAPI}"
-                />
     </Grid>
-
+    
 </ContentPage>
