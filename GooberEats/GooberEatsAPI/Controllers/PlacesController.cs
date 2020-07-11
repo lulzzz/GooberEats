@@ -27,18 +27,12 @@ namespace GooberEatsAPI.Controllers
             _places = places;
         }
 
-        public async Task<string> Index()
+        [Route("{latitude}/{longitude}/{radius}")]
+        public async Task<Place> Index(double latitude, double longitude, int radius)
         {
-            var output = await _places.GetPlaces();
+            var place = await _places.GetPlaces(latitude, longitude, radius);
 
-            string debugText = @"Name: {0}
-Rating: {1}
-Reviews: {2}
-Latitude: {3}
-Longitude: {4}
-Address: {5}";
-
-            return string.Format(debugText, output.Name, output.Rating, output.TotalReviews, output.Latitude, output.Longitude, output.Address);
+            return place;
         }
     }
 }

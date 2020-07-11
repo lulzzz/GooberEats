@@ -7,6 +7,6 @@ namespace GooberEatsAPI.Models.Interfaces
 {
     public interface IPlaces
     {
-        public Task<Place> GetPlaces();
+        public Task<Place> GetPlaces(double latitude, double longitude, int radius);
     }
 }

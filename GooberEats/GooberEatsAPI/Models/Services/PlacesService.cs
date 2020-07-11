@@ -34,14 +34,11 @@ namespace GooberEatsAPI.Models.Services
         private static readonly HttpClient _client = new HttpClient();
 
 
-        public async Task<Place> GetPlaces()
+        public async Task<Place> GetPlaces(double latitude, double longitude, int radius)
         {
             // Our variables used to build our uri to make our web request.
             var placesKey = Configuration["ApiKeys:GooglePlacesApiKey"];
-            var latitude = 47.126166;
-            var longitude = -122.412825;
-            var radius = 8050;
-            var keyword = "take%20out";
+            string keyword = "take%20out";
 
             // The uri used to make our actual web request to the Google Places API.
             string uri = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=restaurant&location={latitude},{longitude}&radius={radius}&keyword={keyword}&key={placesKey}";
