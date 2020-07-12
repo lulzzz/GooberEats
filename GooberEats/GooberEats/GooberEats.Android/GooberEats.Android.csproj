@@ -90,7 +90,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GooberEats\GooberEats.csproj">
       <Project>{3A3A9067-F398-4CA3-BB5E-11B8007E38C4}</Project>
