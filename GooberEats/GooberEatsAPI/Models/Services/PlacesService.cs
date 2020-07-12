@@ -41,7 +41,7 @@ namespace GooberEatsAPI.Models.Services
             string keyword = "take%20out";
 
             // The uri used to make our actual web request to the Google Places API.
-            string uri = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?type=restaurant&location={latitude},{longitude}&radius={radius}&keyword={keyword}&key={placesKey}";
+            string uri = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location={latitude},{longitude}&radius={radius}&type=restaurant&keyword={keyword}&key={placesKey}";
 
             // Clearing and setting our _client headers to prep it for retrieval of json data.
             _client.DefaultRequestHeaders.Accept.Clear();
@@ -58,7 +58,7 @@ namespace GooberEatsAPI.Models.Services
 
                 // Creating a List to hold all of our results, in order to randomly select one after.
                 List<Place> Places = new List<Place>();
-                
+
                 // Converting each result into a Place, and adding it to our List.
                 foreach (var result in jsonResult.Results)
                 {
@@ -84,8 +84,6 @@ namespace GooberEatsAPI.Models.Services
 
                 return placesArray[randomNumber];
             }
-
-            
         }
     }
 }

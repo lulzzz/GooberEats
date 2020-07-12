@@ -12,6 +12,8 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using GooberEatsAPI.Models;
 using GooberEats.Views;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GooberEats.ViewModels
 {
@@ -34,6 +36,18 @@ namespace GooberEats.ViewModels
 
         //Establish our HttpClient object.
         private static readonly HttpClient _client = new HttpClient(insecureHandler);
+
+        // Bind activity indicator IsBusy status.
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged(nameof(IsBusy));
+            }
+        }
 
         // Present and bind options for distance picker.
         List<string> distanceOptions = new List<string>
@@ -73,8 +87,11 @@ namespace GooberEats.ViewModels
         public ICommand CallAPI { get; }
         async void FindAPlace()
         {
+            // Enable Activity Indicator.
+            IsBusy = true;
+
             // Get the user's current device location.
-            GetLocation();
+            await GetLocation();
 
             // Convert the user selected distance radius from a string in miles to an int in meters.
             int radius = 0;
@@ -113,6 +130,9 @@ namespace GooberEats.ViewModels
                 var content = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<Place>(content);
 
+                // Disable Activity Indicator.
+                IsBusy = false;
+
                 await _navigation.PushAsync(new ResultPage(result));
             }
             else
@@ -121,12 +141,16 @@ namespace GooberEats.ViewModels
                 {
                     Name = "Didn't work..."
                 };
+
+                // Disable Activity Indicator.
+                IsBusy = false;
+
                 await _navigation.PushAsync(new NavigationPage(new ResultPage(result)));
             }
         }
 
         // Get the user's current device location.
-        async void GetLocation()
+        async Task GetLocation()
         {
             try
             {
