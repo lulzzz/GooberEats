@@ -52,6 +52,10 @@
                     ItemsSource="{Binding DistanceOptions}"
                     SelectedItem="{Binding Distance}"
                     />
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               Color="CornflowerBlue"
+                               />
         </StackLayout>
 
         <Button Text="EAT!"
