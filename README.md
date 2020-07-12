@@ -38,8 +38,37 @@ If the restaurant sounds appealing, there's even a button to view it directly in
 ## Getting Started
 
 #### Getting Started (Users)
+GooberEats will be available on the Google Play Store as soon as possible after initial release. Check back here for further instructions when that happens!
 
 #### Getting Started (Developers)
+To get started, you will need a few things. First, you'll need Git, which you can get [here](https://git-scm.com/).
+
+You'll also need a copy of [Visual Studio 2019](https://visualstudio.microsoft.com/vs/community/). Installing the latest version will also install the latest versions of .NET / .NET Core.
+
+Once you've installed Visual Studio, you will need to add a few workloads from the Visual Studio Installer:
+- .NET Core cross-platform development
+- ASP.NET and web development
+- Mobile development with .NET
+- Any other workloads that interest you
+
+After you've ensured that your computer has installed all of the necessary software and components, you'll need to clone the GooberEats repo.
+
+From your command prompt, enter the following:
+```
+git clone https://github.com/robertjnielsen/GooberEats.git
+```
+
+Then you'll want to navigate to the directory where you cloned the repository to, and open up the `GooberEats.sln` solution file in Visual Studio.
+
+From there, you can modify, play with, or run the application. As this application also includes the GooberEatsAPI server, if you wish to run that locally as well, you will need to do a few things.
+
+First, you need to open the solution properties by right-clicking on the `GooberEats.sln` file.
+
+Under the `Common Properties > Startup Project` settings, check the radio button for `Multiple Startup Projects`.
+
+Set both `GooberEats.Android` and `GooberEatsAPI` to `Start`, and then using the arrows to the right, move `GooberEats.Android` **below** `GooberEatsAPI`. This will allow the API server to startup before the Android application.
+
+Finally, you can close the solution properties window, and select `Start` on your top toolbar. _(Note: If you haven't already configured an Android device emulator, Visual Studio will prompt you to do so. It's best to just go with the default settings, as these will work just fine.)_
 
 ## Tools Used
 
