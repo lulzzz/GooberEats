@@ -1,6 +1,6 @@
 # <img src="./Assets/Icons/icon_72.png" width="48"/> GooberEats
-**Current Version:** 0.6d  
-**Last Updated:** July 11, 2020
+**Current Version:** 1.0R  
+**Last Updated:** July 12, 2020
 
 ## Table Of Contents
 1. [Overview](#overview)
@@ -111,6 +111,11 @@ There are a few different letters and numbers that you may see used during the v
 
 ###### Version History
 
+**v1.0R - July 12, 2020**
+- MVP reached. First complete release ready, will be submitting to Google Play Store as soon as possible.
+- Added activity indicator upon search query submit.
+- Fixed [bug](https://github.com/robertjnielsen/GooberEats/issues/9) that caused initial result to not exist, though subsequent queries were successful. Cause was determined to be in device location collection.
+
 **v0.6d - July 11, 2020**
 - ResultPage 100% complete (MVP).
 - ResultPage includes button to open result in native device map application.
@@ -157,7 +162,7 @@ The following permissions are required to be enabled in order for Goober Eats to
 
 ## License
 
-Goober Eats - Copyright © 2020
+GooberEats - Copyright © 2020
 
 This program is free software: you can redistribute it and/or modify it under the terms of the [GNU General Public License version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) as published by the [Free Software Foundation](https://www.fsf.org/about/).
 
