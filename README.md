@@ -3,6 +3,7 @@
 **Last Updated:** July 12, 2020
 
 [![Version](https://img.shields.io/badge/Version-1.1-informational)](#change-log) ![Google Play Store](https://img.shields.io/badge/Google%20Play%20Store-Pending-yellow) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+
 [![C#](https://img.shields.io/badge/Language-C%23-blueviolet)](https://docs.microsoft.com/en-us/dotnet/csharp/) [![ASP.NET Core](https://img.shields.io/badge/UI%20Framework-Xamarin.Forms-blueviolet)](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/) [![ASP.NET Core](https://img.shields.io/badge/Framework-ASP.NET%20Core-blueviolet)](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1)
 
 ## Table Of Contents
