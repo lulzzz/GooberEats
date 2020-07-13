@@ -1,5 +1,5 @@
 # <img src="./Assets/Icons/icon_72.png" width="48"/> GooberEats
-**Current Version:** 1.0R  
+**Current Version:** 1.1  
 **Last Updated:** July 12, 2020
 
 ## Table Of Contents
@@ -110,6 +110,11 @@ There are a few different letters and numbers that you may see used during the v
   - The letter **R** after a version indicates that it is a _major release_. These occur when new and possibly prominant features are introduced into the application.
 
 ###### Version History
+
+**v1.1 - July 12, 2020**
+- Updated API uri from local debug URL to production URL.
+- Modified distance radius values to more reasonable choices.
+- Updated code comments throughout for legibility and ease of understanding.
 
 **v1.0R - July 12, 2020**
 - MVP reached. First complete release ready, will be submitting to Google Play Store as soon as possible.

@@ -1,9 +1,6 @@
 ﻿using GooberEatsAPI.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -12,6 +9,11 @@ namespace GooberEats.ViewModels
 {
     class ResultViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Constructor method to instantiate new ResultViewModel object.
+        /// </summary>
+        /// <param name="navigation">The INavigation interface.</param>
+        /// <param name="result">The returned Place result from the query.</param>
         public ResultViewModel(INavigation navigation, Place result)
         {
             _navigation = navigation;
@@ -34,7 +36,7 @@ namespace GooberEats.ViewModels
             }
         }
 
-        // Map Result Command
+        // Map Result Command to open the returned Place result in the native Maps application.
         public ICommand OpenMap { get; }
         async void MapResult()
         {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Essentials;
@@ -12,7 +11,6 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using GooberEatsAPI.Models;
 using GooberEats.Views;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace GooberEats.ViewModels
@@ -54,8 +52,8 @@ namespace GooberEats.ViewModels
         {
             "5 miles",
             "10 miles",
-            "25 miles",
-            "50 miles"
+            "15 miles",
+            "25 miles"
         };
         public List<string> DistanceOptions
         {
@@ -94,7 +92,7 @@ namespace GooberEats.ViewModels
             await GetLocation();
 
             // Convert the user selected distance radius from a string in miles to an int in meters.
-            int radius = 0;
+            int radius;
             switch (Distance)
             {
                 case "5 miles":
@@ -103,11 +101,11 @@ namespace GooberEats.ViewModels
                 case "10 miles":
                     radius = 16100;
                     break;
+                case "15 miles":
+                    radius = 24150;
+                    break;
                 case "25 miles":
                     radius = 40240;
-                    break;
-                case "50 miles":
-                    radius = 80500;
                     break;
                 default:
                     radius = 8050;
@@ -118,9 +116,8 @@ namespace GooberEats.ViewModels
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            // Debug API uri.
-            // string uri = $"https://10.0.0.56:5001/api/places/47.126166/-122.412825/{radius}";
-            string uri = $"https://10.0.0.56:5001/api/places/{Latitude}/{Longitude}/{radius}";
+            // Production API uri.
+            string uri = $"https://goobereatsapi.azurewebsites.net/api/places/{Latitude}/{Longitude}/{radius}";
 
             // Submit and consume our GET request to the GooberEatsAPI server.
             var response = await _client.GetAsync(uri);
@@ -137,14 +134,19 @@ namespace GooberEats.ViewModels
             }
             else
             {
+                // Custom Place "Result" if API response failed...
                 Place result = new Place
                 {
-                    Name = "Didn't work..."
+                    Name = "Please try again...",
+                    Rating = 0,
+                    TotalReviews = 0,
+                    Address = "Failed to retrieve result."
                 };
 
                 // Disable Activity Indicator.
                 IsBusy = false;
 
+                // Navigate application to the ResultPage view, passing the returned result.
                 await _navigation.PushAsync(new NavigationPage(new ResultPage(result)));
             }
         }
@@ -177,13 +179,12 @@ namespace GooberEats.ViewModels
             HttpClientHandler handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
             {
-                return true;
-                /*if (cert.Issuer.Equals("CN=localhost"))
+                if (cert.Issuer.Equals("CN=localhost"))
                 {
                     return true;
                 }
 
-                return errors == System.Net.Security.SslPolicyErrors.None;*/
+                return errors == System.Net.Security.SslPolicyErrors.None;
             };
 
             return handler;
