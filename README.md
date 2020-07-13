@@ -2,6 +2,8 @@
 **Current Version:** 1.1  
 **Last Updated:** July 12, 2020
 
+[![Version](https://img.shields.io/badge/Version-1.1-informational)](#change-log) ![Google Play Store](https://img.shields.io/badge/Google%20Play%20Store-Pending-yellow) [![C#](https://img.shields.io/badge/Language-C%23-blueviolet)](https://docs.microsoft.com/en-us/dotnet/csharp/) [![ASP.NET Core](https://img.shields.io/badge/UI%20Framework-Xamarin.Forms-blueviolet)](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/) [![ASP.NET Core](https://img.shields.io/badge/Framework-ASP.NET%20Core-blueviolet)](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+
 ## Table Of Contents
 1. [Overview](#overview)
 2. [Visuals](#visuals)
@@ -167,7 +169,7 @@ The following permissions are required to be enabled in order for Goober Eats to
 
 ## License
 
-GooberEats - Copyright © 2020
+GooberEats - Copyright Â© 2020
 
 This program is free software: you can redistribute it and/or modify it under the terms of the [GNU General Public License version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) as published by the [Free Software Foundation](https://www.fsf.org/about/).
 
