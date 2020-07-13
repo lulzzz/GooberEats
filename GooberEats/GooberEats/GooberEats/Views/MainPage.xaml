@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GooberEats.MainPage">
-
+    
+    <!-- Establish our View within a Grid layout. -->
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*" />
@@ -18,6 +19,7 @@
             <ColumnDefinition Width="1.25*" />
         </Grid.ColumnDefinitions>
 
+        <!-- Establish the image for the logo. -->
         <Image Source="food"
                Grid.Row="0"
                Grid.Column="0"
@@ -25,6 +27,7 @@
                HorizontalOptions="End"
                />
 
+        <!-- Establish the text for the logo. -->
         <Label Text="GooberEats"
                Grid.Row="0"
                Grid.Column="1"
@@ -35,6 +38,7 @@
                FontAttributes="Bold"
                />
 
+        <!-- Some basic descriptive text. -->
         <Label Text="Choose your distance radius and hit EAT!"
                Grid.Row="1"
                Grid.Column="0"
@@ -44,20 +48,26 @@
                FontSize="18"
                />
 
+        <!-- Define a StackLayout UI section within our Grid. -->
         <StackLayout Grid.Row="2"
                      Grid.Column="0"
                      Grid.ColumnSpan="2">
+            
+            <!-- Distance Picker with descriptive text. -->
             <Label Text="How far are you willing to travel?"/>
             <Picker Title="Please choose a maximum distance..."
                     ItemsSource="{Binding DistanceOptions}"
                     SelectedItem="{Binding Distance}"
                     />
+            
+            <!-- Activity Indicator to show when background processes are happening. -->
             <ActivityIndicator IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"
                                Color="CornflowerBlue"
                                />
         </StackLayout>
 
+        <!-- The search button that initiates the query. -->
         <Button Text="EAT!"
                 Grid.Row="3"
                 Grid.Column="0"

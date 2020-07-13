@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="GooberEats.Views.ResultPage">
 
+    <!-- Establish our View within a Grid layout. -->
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*" />
@@ -18,6 +19,7 @@
             <ColumnDefinition Width="1.25*" />
         </Grid.ColumnDefinitions>
 
+        <!-- Establish the image for the logo. -->
         <Image Source="food"
                Grid.Row="0"
                Grid.Column="0"
@@ -25,6 +27,7 @@
                HorizontalOptions="End"
                />
 
+        <!-- Establish the text for the logo. -->
         <Label Text="GooberEats"
                Grid.Row="0"
                Grid.Column="1"
@@ -35,6 +38,7 @@
                FontAttributes="Bold"
                />
 
+        <!-- Some basic descriptive text. -->
         <Label Text="Try this place out!"
                Grid.Row="1"
                Grid.Column="0"
@@ -44,28 +48,38 @@
                FontSize="18"
                />
 
+        <!-- Define a StackLayout UI section within our Grid. -->
         <StackLayout Grid.Row="2"
                      Grid.Column="0"
                      Grid.ColumnSpan="2">
+            
+            <!-- The name of the returned result. -->
             <Label Text="{Binding Result.Name}"
                    HorizontalTextAlignment="Center"
                    FontSize="22"
                    FontAttributes="Bold"
                    />
+            
+            <!-- The rating of the returned result. -->
             <Label Text="{Binding Result.Rating, StringFormat='Rating: {0}'}"
                    HorizontalTextAlignment="Center"
                    FontSize="20"
                    />
+            
+            <!-- The total number of reviews of the returned result. -->
             <Label Text="{Binding Result.TotalReviews, StringFormat='Total Reviews: {0}'}"
                    HorizontalTextAlignment="Center"
                    FontSize="20"
                    />
+            
+            <!-- The address of the returned result. -->
             <Label Text="{Binding Result.Address}"
                    HorizontalTextAlignment="Center"
                    FontSize="18"
                    />
         </StackLayout>
 
+        <!-- Button that opens the returned result in the native Maps application. -->
         <Button Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"

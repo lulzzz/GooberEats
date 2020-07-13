@@ -2,6 +2,9 @@
 {
     public class Place
     {
+        /// <summary>
+        /// Constructor method to instantiate a new Place object.
+        /// </summary>
         public Place()
         {
 
