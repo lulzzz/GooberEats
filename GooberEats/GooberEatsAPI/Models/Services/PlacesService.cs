@@ -39,12 +39,12 @@ namespace GooberEatsAPI.Models.Services
         /// <param name="latitude">The Android device location latitude.</param>
         /// <param name="longitude">The Android device location longitude.</param>
         /// <param name="radius">The distance radius the user is willing to travel.</param>
+        /// <param name="keyword">The keyword the user intends to filter by.</param>
         /// <returns>A single Place result.</returns>
-        public async Task<Place> GetPlaces(double latitude, double longitude, int radius)
+        public async Task<Place> GetPlaces(double latitude, double longitude, int radius, string keyword)
         {
-            // Our variables used to build our uri to make our web request.
+            // Our key used to build our uri to make our web request.
             var placesKey = Configuration["ApiKeys:GooglePlacesApiKey"];
-            string keyword = "take%20out";
 
             // The uri used to make our actual web request to the Google Places API.
             string uri = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location={latitude},{longitude}&radius={radius}&type=restaurant&keyword={keyword}&key={placesKey}";

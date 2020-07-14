@@ -60,6 +60,12 @@
                     SelectedItem="{Binding Distance}"
                     />
             
+            <!-- Keyword filter with descriptive text. -->
+            <Label Text="What type of food are you craving?"/>
+            <Entry Placeholder="Ex: pizza, vegetarian, etc."
+                   Text="{Binding Keyword}"
+                   />
+
             <!-- Activity Indicator to show when background processes are happening. -->
             <ActivityIndicator IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"

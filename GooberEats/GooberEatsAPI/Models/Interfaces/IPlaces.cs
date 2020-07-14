@@ -13,7 +13,8 @@ namespace GooberEatsAPI.Models.Interfaces
         /// <param name="latitude">The Android device location latitude.</param>
         /// <param name="longitude">The Android device location longitude.</param>
         /// <param name="radius">The distance radius the user is willing to travel.</param>
+        /// <param name="keyword">The keyword the user intends to filter by.</param>
         /// <returns>A single Place result.</returns>
-        public Task<Place> GetPlaces(double latitude, double longitude, int radius);
+        public Task<Place> GetPlaces(double latitude, double longitude, int radius, string keyword);
     }
 }
