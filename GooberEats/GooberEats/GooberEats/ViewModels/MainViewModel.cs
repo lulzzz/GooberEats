@@ -124,6 +124,12 @@ namespace GooberEats.ViewModels
                     break;
             }
 
+            // Apply the default keyword of "take out" if the user does not enter a keyword.
+            if (Keyword == null)
+            {
+                Keyword = "take%20out";
+            }
+
             // Clear and set the HttpClient headers to accept json data from the API.
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
