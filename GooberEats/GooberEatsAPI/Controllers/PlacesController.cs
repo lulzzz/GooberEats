@@ -33,11 +33,12 @@ namespace GooberEatsAPI.Controllers
         /// <param name="latitude">The Android device location latitude.</param>
         /// <param name="longitude">The Android device location longitude.</param>
         /// <param name="radius">The distance radius the user is willing to travel.</param>
+        /// <param name="keyword">The keyword the user intends to filter by.</param>
         /// <returns>A single Place result.</returns>
-        [Route("{latitude}/{longitude}/{radius}")]
-        public async Task<Place> Index(double latitude, double longitude, int radius)
+        [Route("{latitude}/{longitude}/{radius}/{keyword}")]
+        public async Task<Place> Index(double latitude, double longitude, int radius, string keyword)
         {
-            var place = await _places.GetPlaces(latitude, longitude, radius);
+            var place = await _places.GetPlaces(latitude, longitude, radius, keyword);
 
             return place;
         }
