@@ -81,6 +81,18 @@ namespace GooberEats.ViewModels
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
+        // Bind keyword search entry.
+        string keyword;
+        public string Keyword
+        {
+            get => keyword;
+            set
+            {
+                keyword = value;
+                OnPropertyChanged(nameof(Keyword));
+            }
+        }
+
         // Request a restaurant from the GooberEatsAPI.
         public ICommand CallAPI { get; }
         async void FindAPlace()
@@ -117,7 +129,7 @@ namespace GooberEats.ViewModels
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             // Production API uri.
-            string uri = $"https://goobereatsapi.azurewebsites.net/api/places/{Latitude}/{Longitude}/{radius}";
+            string uri = $"https://goobereatsapi.azurewebsites.net/api/places/{Latitude}/{Longitude}/{radius}/{Keyword}";
 
             // Submit and consume our GET request to the GooberEatsAPI server.
             var response = await _client.GetAsync(uri);
