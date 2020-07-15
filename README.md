@@ -1,8 +1,8 @@
 # <img src="./Assets/Icons/icon_72.png" width="48"/> GooberEats
-**Current Version:** 1.2  
-**Last Updated:** July 13, 2020
+**Current Version:** 1.3  
+**Last Updated:** July 14, 2020
 
-[![Version](https://img.shields.io/badge/Version-1.2-informational)](#change-log) ![Google Play Store](https://img.shields.io/badge/Google%20Play%20Store-Pending-yellow) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+[![Version](https://img.shields.io/badge/Version-1.3-informational)](#change-log) ![Google Play Store](https://img.shields.io/badge/Google%20Play%20Store-Pending-yellow) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 [![C#](https://img.shields.io/badge/Language-C%23-blueviolet)](https://docs.microsoft.com/en-us/dotnet/csharp/) [![ASP.NET Core](https://img.shields.io/badge/UI%20Framework-Xamarin.Forms-blueviolet)](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/) [![ASP.NET Core](https://img.shields.io/badge/Framework-ASP.NET%20Core-blueviolet)](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1)
 
@@ -114,6 +114,9 @@ There are a few different letters and numbers that you may see used during the v
   - The letter **R** after a version indicates that it is a _major release_. These occur when new and possibly prominant features are introduced into the application.
 
 ###### Version History
+
+**v1.3 - July 14, 2020**
+- Included ability for GooberEatsAPI to check if query response contains a `next_page_token` property, and if true will query until the property is `null` in order to add to the overall possible result pool.
 
 **v1.2 - July 13, 2020**
 - Included ability to filter potential query results by keyword (e.g.; pizza, vegetarian, etc).

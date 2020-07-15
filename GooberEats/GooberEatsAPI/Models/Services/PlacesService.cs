@@ -34,6 +34,11 @@ namespace GooberEatsAPI.Models.Services
         private static readonly HttpClient _client = new HttpClient();
 
         /// <summary>
+        /// A List to contain all of our returned Places.
+        /// </summary>
+        List<Place> Places = new List<Place>();
+
+        /// <summary>
         /// Takes in location data from the GooberEats Android application, and forwards that data (with supplemental options) to the Google Places API to retrieve a list of results.
         /// </summary>
         /// <param name="latitude">The Android device location latitude.</param>
@@ -49,6 +54,36 @@ namespace GooberEatsAPI.Models.Services
             // The uri used to make our actual web request to the Google Places API.
             string uri = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location={latitude},{longitude}&radius={radius}&type=restaurant&keyword={keyword}&key={placesKey}";
 
+            // Make our initial query to the Google Places API.
+            var jsonResult = await QueryPlaces(uri);
+
+            // Check if a next_page_token exists.
+            while (jsonResult.NextPage != null)
+            {
+                // Set the uri to query the next page of the returned results.
+                uri = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={jsonResult.NextPage}&key={placesKey}";
+
+                // Request the next page of results.
+                jsonResult = await QueryPlaces(uri);
+            }
+
+            // Convert our List to an array, and randomly select an index to return.
+            Place[] placesArray = Places.ToArray();
+            int numberOfPlaces = placesArray.Length;
+
+            Random random = new Random();
+            int randomNumber = random.Next(0, numberOfPlaces);
+
+            return placesArray[randomNumber];
+        }
+
+        /// <summary>
+        /// Queries the Google Places API, deserializes the Place objects, and adds them to the Places List.
+        /// </summary>
+        /// <param name="uri">The uri to query with parameters.</param>
+        /// <returns>The deserialized PlacesResponse object.</returns>
+        public async Task<PlacesResponse> QueryPlaces(string uri)
+        {
             // Clearing and setting our _client headers to prep it for retrieval of json data.
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -61,9 +96,6 @@ namespace GooberEatsAPI.Models.Services
             {
                 var response = reader.ReadToEnd();
                 var jsonResult = JsonConvert.DeserializeObject<PlacesResponse>(response);
-
-                // Creating a List to hold all of our results, in order to randomly select one after.
-                List<Place> Places = new List<Place>();
 
                 // Converting each result into a Place, and adding it to our List.
                 foreach (var result in jsonResult.Results)
@@ -81,14 +113,7 @@ namespace GooberEatsAPI.Models.Services
                     Places.Add(place);
                 }
 
-                // Convert our List to an array, and randomly select an index to return.
-                Place[] placesArray = Places.ToArray();
-                int numberOfPlaces = placesArray.Length;
-
-                Random random = new Random();
-                int randomNumber = random.Next(0, numberOfPlaces);
-
-                return placesArray[randomNumber];
+                return jsonResult;
             }
         }
     }
