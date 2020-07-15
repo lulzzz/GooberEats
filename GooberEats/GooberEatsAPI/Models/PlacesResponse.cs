@@ -17,6 +17,9 @@ namespace GooberEatsAPI.Models
         [JsonProperty("html_attributions")]
         public List<object> HtmlAttributions { get; set; }
 
+        [JsonProperty("next_page_token")]
+        public string NextPage { get; set; }
+
         [JsonProperty("results")]
         public List<Result> Results { get; set; }
 
