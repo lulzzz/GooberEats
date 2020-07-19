@@ -45,5 +45,10 @@ namespace GooberEatsAPI.Models
         /// The address of the Place.
         /// </summary>
         public string Address { get; set; }
+
+        /// <summary>
+        /// The Google Places Plus Code (Compount Code) of the Place.
+        /// </summary>
+        public string PlusCode { get; set; }
     }
 }
