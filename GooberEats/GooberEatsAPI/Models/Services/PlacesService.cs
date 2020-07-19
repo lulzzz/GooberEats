@@ -107,7 +107,8 @@ namespace GooberEatsAPI.Models.Services
                         Longitude = result.Geometry.Location.Longitude,
                         Rating = result.Rating,
                         TotalReviews = result.TotalReviews,
-                        Address = result.Vicinity
+                        Address = result.Vicinity,
+                        PlusCode = result.PlusCode.CompoundCode
                     };
 
                     Places.Add(place);

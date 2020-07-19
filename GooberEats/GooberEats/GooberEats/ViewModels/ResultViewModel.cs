@@ -40,7 +40,7 @@ namespace GooberEats.ViewModels
         public ICommand OpenMap { get; }
         async void MapResult()
         {
-            await Launcher.OpenAsync($"geo:{result.Latitude},{result.Longitude}?q={result.Address}");
+            await Launcher.OpenAsync($"geo:{Result.Latitude},{Result.Longitude}?q={Result.Name}, {Result.Address}");
         }
 
         // Handle property change events.

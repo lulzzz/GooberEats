@@ -39,5 +39,10 @@
         /// The address of the Place.
         /// </summary>
         public string Address { get; set; }
+
+        /// <summary>
+        /// The Google Places Plus Code (Compound Code) of the Place.
+        /// </summary>
+        public string PlusCode { get; set; }
     }
 }
